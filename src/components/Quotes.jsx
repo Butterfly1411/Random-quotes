@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../hooks/useTheme';
+import { useSettings } from '../hooks/useSettings';
 import ThemeToggle from './ThemeToggle';
 import QuoteCard from './QuoteCard';
 import BackgroundOverlay from './BackgroundOverlay';
+import SettingsModal from './SettingsModal';
 
 // Import images
 import blueBg from '../assets/blue-bg.jpg';
@@ -45,25 +47,49 @@ const images = [
 
 const Quotes = () => {
     const { theme, toggleTheme } = useTheme();
+    const { settings, updateSetting } = useSettings();
     const [quote, setQuote] = useState(quotes[0]);
-    const [bgImage, setBgImage] = useState(images[0]);
+    const [bgImage, setBgImage] = useState(images[settings.backgroundIndex]);
     const [isLoading, setIsLoading] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
 
     useEffect(() => {
         getRandom();
     }, []);
 
+    // Update background when settings change
+    useEffect(() => {
+        setBgImage(images[settings.backgroundIndex]);
+    }, [settings.backgroundIndex]);
+
+    // Auto change quotes
+    useEffect(() => {
+        if (settings.autoChange) {
+            const interval = setInterval(() => {
+                getRandom();
+            }, 10000); // 10 seconds
+
+            return () => clearInterval(interval);
+        }
+    }, [settings.autoChange]);
     const getRandom = async () => {
         setIsLoading(true);
         
         // Simulate loading for better UX
-        await new Promise(resolve => setTimeout(resolve, 800));
+        const loadingTime = settings.animationSpeed === 'fast' ? 400 : 
+                           settings.animationSpeed === 'slow' ? 1200 : 800;
+        await new Promise(resolve => setTimeout(resolve, loadingTime));
         
         const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
-        const randomImageIndex = Math.floor(Math.random() * images.length);
         
         setQuote(quotes[randomQuoteIndex]);
-        setBgImage(images[randomImageIndex]);
+        
+        // Only change background if not manually selected
+        if (!showSettings) {
+            const randomImageIndex = Math.floor(Math.random() * images.length);
+            updateSetting('backgroundIndex', randomImageIndex);
+        }
+        
         setIsLoading(false);
     };
 
@@ -74,7 +100,11 @@ const Quotes = () => {
                 key={bgImage}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
+                transition={{ 
+                    duration: settings.animationSpeed === 'fast' ? 0.8 : 
+                             settings.animationSpeed === 'slow' ? 2.2 : 1.5, 
+                    ease: "easeOut" 
+                }}
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${bgImage})` }}
             />
@@ -82,16 +112,31 @@ const Quotes = () => {
             {/* Background Overlay */}
             <BackgroundOverlay />
             
-            {/* Theme Toggle */}
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            {/* Theme Toggle & Settings */}
+            <ThemeToggle 
+                theme={theme} 
+                toggleTheme={toggleTheme} 
+                onSettingsClick={() => setShowSettings(true)}
+            />
+
+            {/* Settings Modal */}
+            <SettingsModal
+                isOpen={showSettings}
+                onClose={() => setShowSettings(false)}
+                settings={settings}
+                updateSetting={updateSetting}
+                images={images}
+                currentBgIndex={settings.backgroundIndex}
+            />
             
             {/* Main Content */}
             <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
                 <AnimatePresence mode="wait">
-                    <QuoteCard 
+                    <QuoteCard
                         quote={quote} 
                         onGenerate={getRandom}
                         isLoading={isLoading}
+                        animationSpeed={settings.animationSpeed}
                     />
                 </AnimatePresence>
             </div>
@@ -103,7 +148,7 @@ const Quotes = () => {
                 transition={{ delay: 1 }}
                 className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
             >
-                <p className="text-white/60 dark:text-gray-400/60 text-sm text-center">
+                <p className="text-white/70 dark:text-gray-400/70 text-sm text-center drop-shadow-md">
                     Ilhomli iqtiboslar to'plami
                 </p>
             </motion.footer>

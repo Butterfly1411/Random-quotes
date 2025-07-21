@@ -2,12 +2,18 @@ import { useState, useEffect } from 'react';
 
 export const useTheme = () => {
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved || 'light';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      return saved || 'light';
+    }
+    return 'light';
   });
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
+    
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
