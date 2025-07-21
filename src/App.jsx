@@ -1,11 +1,15 @@
 import React from 'react'
-import Quotes from './components/Quotes'
+import QuotesApp from './components/QuotesApp'
+import { ThemeProvider } from './contexts/ThemeContext'
+import { SettingsProvider } from './contexts/SettingsContext'
 
 const App = () => {
   return (
-    <div>
-      <Quotes />
-    </div>
+    <ThemeProvider>
+      <SettingsProvider>
+        <QuotesApp />
+      </SettingsProvider>
+    </ThemeProvider>
   )
 }
 
