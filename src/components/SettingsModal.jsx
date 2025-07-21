@@ -87,25 +87,25 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="relative">
-                      <Sparkles className="w-8 h-8 text-blue-500 dark:text-blue-400" />
+                      <Sparkles className="w-10 h-10 text-blue-500 dark:text-blue-400" />
                       <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-lg animate-pulse"></div>
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+                      <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
                         Sozlamalar
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-400 mt-1">
+                      <p className="text-gray-600 dark:text-gray-400 mt-1 text-lg">
                         Ilovani o'zingizga moslang
                       </p>
                     </div>
                   </div>
                   <motion.button
                     onClick={onClose}
-                    className="p-3 rounded-2xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                    className="p-4 rounded-3xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <X className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                    <X className="w-8 h-8 text-gray-600 dark:text-gray-400" />
                   </motion.button>
                 </div>
 
@@ -117,7 +117,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                       <motion.button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                        className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-300 ${
                           activeTab === tab.id
                             ? 'bg-white/30 dark:bg-gray-800/30 text-gray-800 dark:text-white shadow-lg'
                             : 'text-gray-600 dark:text-gray-400 hover:bg-white/20 dark:hover:bg-gray-800/20'
@@ -125,7 +125,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-6 h-6" />
                         <span>{tab.label}</span>
                       </motion.button>
                     )
@@ -148,8 +148,8 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                       {/* Background Selection */}
                       <div>
                         <div className="flex items-center space-x-3 mb-6">
-                          <Image className="w-6 h-6 text-purple-500" />
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                          <Image className="w-8 h-8 text-purple-500" />
+                          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
                             Orqa Fon
                           </h3>
                         </div>
@@ -196,8 +196,8 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                       {/* Font Size */}
                       <div>
                         <div className="flex items-center space-x-3 mb-6">
-                          <Eye className="w-6 h-6 text-green-500" />
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                          <Eye className="w-8 h-8 text-green-500" />
+                          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
                             Matn Hajmi
                           </h3>
                         </div>
@@ -206,7 +206,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                             <motion.button
                               key={size.value}
                               onClick={() => updateSetting('fontSize', size.value)}
-                              className={`p-6 rounded-2xl font-semibold transition-all duration-300 ${
+                              className={`p-8 rounded-3xl font-semibold text-lg transition-all duration-300 ${
                                 settings.fontSize === size.value
                                   ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg scale-105'
                                   : 'bg-white/20 dark:bg-gray-800/20 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/30 border border-white/30 dark:border-gray-700/30'
@@ -223,8 +223,8 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                       {/* Text Style */}
                       <div>
                         <div className="flex items-center space-x-3 mb-6">
-                          <Type className="w-6 h-6 text-pink-500" />
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                          <Type className="w-8 h-8 text-pink-500" />
+                          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
                             Matn Uslubi
                           </h3>
                         </div>
@@ -233,7 +233,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                             <motion.button
                               key={style.value}
                               onClick={() => updateSetting('textStyle', style.value)}
-                              className={`p-6 rounded-2xl font-semibold transition-all duration-300 ${
+                              className={`p-8 rounded-3xl font-semibold text-lg transition-all duration-300 ${
                                 settings.textStyle === style.value
                                   ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg scale-105'
                                   : 'bg-white/20 dark:bg-gray-800/20 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/30 border border-white/30 dark:border-gray-700/30'
@@ -266,8 +266,8 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                       {/* Animation Speed */}
                       <div>
                         <div className="flex items-center space-x-3 mb-6">
-                          <Zap className="w-6 h-6 text-yellow-500" />
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                          <Zap className="w-8 h-8 text-yellow-500" />
+                          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
                             Animatsiya Tezligi
                           </h3>
                         </div>
@@ -276,7 +276,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                             <motion.button
                               key={speed.value}
                               onClick={() => updateSetting('animationSpeed', speed.value)}
-                              className={`p-6 rounded-2xl font-semibold transition-all duration-300 ${
+                              className={`p-8 rounded-3xl font-semibold text-lg transition-all duration-300 ${
                                 settings.animationSpeed === speed.value
                                   ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg scale-105'
                                   : 'bg-white/20 dark:bg-gray-800/20 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/30 border border-white/30 dark:border-gray-700/30'
@@ -295,16 +295,16 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                         {/* Auto Change Toggle */}
                         <div>
                           <div className="flex items-center space-x-3 mb-4">
-                            <RotateCcw className="w-6 h-6 text-blue-500" />
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                            <RotateCcw className="w-8 h-8 text-blue-500" />
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
                               Avtomatik O'zgartirish
                             </h3>
                           </div>
                           <motion.label 
-                            className="flex items-center justify-between p-6 bg-white/20 dark:bg-gray-800/20 rounded-2xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                            className="flex items-center justify-between p-8 bg-white/20 dark:bg-gray-800/20 rounded-3xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
                             whileHover={{ scale: 1.02 }}
                           >
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-lg">
                               Avtomatik yangi iqtibos
                             </span>
                             <div className="relative">
@@ -334,8 +334,8 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                         {settings.autoChange && (
                           <div>
                             <div className="flex items-center space-x-3 mb-4">
-                              <Clock className="w-6 h-6 text-green-500" />
-                              <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                              <Clock className="w-8 h-8 text-green-500" />
+                              <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
                                 Vaqt Oralig'i
                               </h3>
                             </div>
@@ -344,7 +344,7 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                                 <motion.button
                                   key={interval.value}
                                   onClick={() => updateSetting('autoChangeInterval', interval.value)}
-                                  className={`p-4 rounded-xl font-medium transition-all duration-300 ${
+                                  className={`p-6 rounded-2xl font-medium text-lg transition-all duration-300 ${
                                     settings.autoChangeInterval === interval.value
                                       ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg'
                                       : 'bg-white/20 dark:bg-gray-800/20 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-700/30 border border-white/30 dark:border-gray-700/30'
@@ -365,16 +365,16 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                         {/* Sound Effects */}
                         <div>
                           <div className="flex items-center space-x-3 mb-4">
-                            <Volume2 className="w-6 h-6 text-purple-500" />
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                            <Volume2 className="w-8 h-8 text-purple-500" />
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
                               Ovoz Effektlari
                             </h3>
                           </div>
                           <motion.label 
-                            className="flex items-center justify-between p-6 bg-white/20 dark:bg-gray-800/20 rounded-2xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                            className="flex items-center justify-between p-8 bg-white/20 dark:bg-gray-800/20 rounded-3xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
                             whileHover={{ scale: 1.02 }}
                           >
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-lg">
                               Tugma bosilganda ovoz
                             </span>
                             <div className="relative">
@@ -403,16 +403,16 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                         {/* Show Author */}
                         <div>
                           <div className="flex items-center space-x-3 mb-4">
-                            <Eye className="w-6 h-6 text-indigo-500" />
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                            <Eye className="w-8 h-8 text-indigo-500" />
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
                               Muallif Ko'rsatish
                             </h3>
                           </div>
                           <motion.label 
-                            className="flex items-center justify-between p-6 bg-white/20 dark:bg-gray-800/20 rounded-2xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                            className="flex items-center justify-between p-8 bg-white/20 dark:bg-gray-800/20 rounded-3xl border border-white/30 dark:border-gray-700/30 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
                             whileHover={{ scale: 1.02 }}
                           >
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">
+                            <span className="text-gray-700 dark:text-gray-300 font-medium text-lg">
                               Muallif nomini ko'rsatish
                             </span>
                             <div className="relative">
@@ -452,19 +452,19 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <Heart className="w-6 h-6 text-red-500" />
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                          <Heart className="w-8 h-8 text-red-500" />
+                          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
                             Sevimli Iqtiboslar ({favorites.length})
                           </h3>
                         </div>
                         {favorites.length > 0 && (
                           <motion.button
                             onClick={exportFavorites}
-                            className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-colors"
+                            className="flex items-center space-x-3 px-6 py-3 bg-blue-500 text-white rounded-2xl hover:bg-blue-600 transition-colors text-lg"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <Download className="w-4 h-4" />
+                            <Download className="w-6 h-6" />
                             <span>Eksport</span>
                           </motion.button>
                         )}
@@ -472,11 +472,11 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
 
                       {favorites.length === 0 ? (
                         <div className="text-center py-12">
-                          <Heart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                          <p className="text-gray-600 dark:text-gray-400 text-lg">
+                          <Heart className="w-20 h-20 text-gray-400 mx-auto mb-6" />
+                          <p className="text-gray-600 dark:text-gray-400 text-xl">
                             Hali sevimli iqtiboslaringiz yo'q
                           </p>
-                          <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">
+                          <p className="text-gray-500 dark:text-gray-500 text-base mt-3">
                             Iqtibosdagi yurak tugmasini bosib sevimli qiling
                           </p>
                         </div>
@@ -485,14 +485,14 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                           {favorites.map((quote) => (
                             <motion.div
                               key={quote.id}
-                              className="p-6 bg-white/20 dark:bg-gray-800/20 rounded-2xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 cursor-pointer"
+                              className="p-8 bg-white/20 dark:bg-gray-800/20 rounded-3xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 cursor-pointer"
                               whileHover={{ scale: 1.02, y: -2 }}
                               onClick={() => handleSelectFavorite(quote)}
                             >
-                              <p className="text-gray-800 dark:text-white font-medium mb-2 line-clamp-2">
+                              <p className="text-gray-800 dark:text-white font-medium mb-3 line-clamp-2 text-lg">
                                 "{quote.text}"
                               </p>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                              <p className="text-gray-600 dark:text-gray-400 text-base">
                                 — {quote.author}
                               </p>
                               <div className="flex items-center justify-between mt-4">
@@ -500,13 +500,13 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
                                   {quote.tags?.slice(0, 2).map((tag, index) => (
                                     <span
                                       key={index}
-                                      className="px-2 py-1 bg-blue-500/20 text-blue-600 dark:text-blue-400 text-xs rounded-lg"
+                                      className="px-3 py-2 bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm rounded-xl"
                                     >
                                       {tag}
                                     </span>
                                   ))}
                                 </div>
-                                <span className="text-xs text-gray-500 dark:text-gray-400">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">
                                   Tanlash uchun bosing
                                 </span>
                               </div>
@@ -523,22 +523,22 @@ const SettingsModal = ({ isOpen, onClose, favorites, onSelectQuote }) => {
               <div className="p-6 bg-gradient-to-r from-gray-50/50 to-gray-100/50 dark:from-gray-800/50 dark:to-gray-900/50 border-t border-white/20 dark:border-gray-700/20">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    <p className="text-gray-600 dark:text-gray-400 text-base">
                       Barcha sozlamalar avtomatik saqlanadi
                     </p>
                     <motion.button
                       onClick={resetSettings}
-                      className="flex items-center space-x-2 px-4 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                      className="flex items-center space-x-3 px-6 py-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-2xl transition-colors text-lg"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <RotateCcw className="w-4 h-4" />
-                      <span className="text-sm">Qayta tiklash</span>
+                      <RotateCcw className="w-6 h-6" />
+                      <span>Qayta tiklash</span>
                     </motion.button>
                   </div>
                   <motion.button
                     onClick={onClose}
-                    className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-lg"
+                    className="px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-2xl hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-lg text-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

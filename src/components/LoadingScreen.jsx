@@ -18,7 +18,7 @@ const LoadingScreen = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           className="relative"
         >
-          <div className="w-20 h-20 border-4 border-white/20 border-t-white/80 rounded-full"></div>
+          <div className="w-24 h-24 border-6 border-white/20 border-t-white/80 rounded-full"></div>
         </motion.div>
         
         {/* Center Icon */}
@@ -27,7 +27,7 @@ const LoadingScreen = () => {
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <BookOpen className="w-8 h-8 text-white" />
+            <BookOpen className="w-10 h-10 text-white" />
           </motion.div>
         </div>
       </div>
@@ -39,11 +39,11 @@ const LoadingScreen = () => {
         transition={{ delay: 0.2 }}
         className="text-center"
       >
-        <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center space-x-2">
-          <Sparkles className="w-6 h-6" />
+        <h3 className="text-3xl font-bold text-white mb-3 flex items-center justify-center space-x-3">
+          <Sparkles className="w-8 h-8" />
           <span>Yangi iqtibos yuklanmoqda...</span>
         </h3>
-        <p className="text-white/70 text-lg">
+        <p className="text-white/70 text-xl">
           Ilhomli so'zlar tayyorlanmoqda
         </p>
       </motion.div>
@@ -53,7 +53,7 @@ const LoadingScreen = () => {
         {[0, 1, 2].map((i) => (
           <motion.div
             key={i}
-            className="w-3 h-3 bg-white/60 rounded-full"
+            className="w-4 h-4 bg-white/60 rounded-full"
             animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
             transition={{
               duration: 1.5,
