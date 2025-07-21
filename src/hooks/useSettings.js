@@ -1,26 +1,31 @@
 import { useState, useEffect } from 'react';
 
+const DEFAULT_SETTINGS = {
+  backgroundIndex: 0,
+  autoChange: false,
+  animationSpeed: 'normal',
+  fontSize: 'medium',
+  textStyle: 'normal',
+  soundEffects: false
+};
+
 export const useSettings = () => {
   const [settings, setSettings] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('app-settings');
-      return saved ? JSON.parse(saved) : {
-        backgroundIndex: 0,
-        autoChange: false,
-        animationSpeed: 'normal',
-        fontSize: 'medium',
-        textStyle: 'normal',
-        soundEffects: false
-      };
+      if (saved) {
+        try {
+          const parsedSettings = JSON.parse(saved);
+          // Merge with defaults to ensure all properties exist
+          return { ...DEFAULT_SETTINGS, ...parsedSettings };
+        } catch (error) {
+          console.warn('Failed to parse settings from localStorage:', error);
+          return DEFAULT_SETTINGS;
+        }
+      }
+      return DEFAULT_SETTINGS;
     }
-    return {
-      backgroundIndex: 0,
-      autoChange: false,
-      animationSpeed: 'normal',
-      fontSize: 'medium',
-      textStyle: 'normal',
-      soundEffects: false
-    };
+    return DEFAULT_SETTINGS;
   });
 
   useEffect(() => {
