@@ -7,13 +7,19 @@ export const useSettings = () => {
       return saved ? JSON.parse(saved) : {
         backgroundIndex: 0,
         autoChange: false,
-        animationSpeed: 'normal'
+        animationSpeed: 'normal',
+        fontSize: 'medium',
+        textStyle: 'normal',
+        soundEffects: false
       };
     }
     return {
       backgroundIndex: 0,
       autoChange: false,
-      animationSpeed: 'normal'
+      animationSpeed: 'normal',
+      fontSize: 'medium',
+      textStyle: 'normal',
+      soundEffects: false
     };
   });
 
