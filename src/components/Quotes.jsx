@@ -84,11 +84,8 @@ const Quotes = () => {
         
         setQuote(quotes[randomQuoteIndex]);
         
-        // Only change background if not manually selected
-        if (!showSettings) {
-            const randomImageIndex = Math.floor(Math.random() * images.length);
-            updateSetting('backgroundIndex', randomImageIndex);
-        }
+        // Don't change background when getting random quote
+        // Background only changes through settings
         
         setIsLoading(false);
     };

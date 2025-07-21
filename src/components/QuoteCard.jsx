@@ -44,8 +44,8 @@ const QuoteCard = ({ quote, onGenerate, isLoading, animationSpeed }) => {
       transition={{ duration: getAnimationDuration(), ease: "easeOut" }}
       className="w-full max-w-4xl mx-auto"
     >
-      <div className="bg-white/15 dark:bg-gray-900/25 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-white/30 dark:border-gray-700/30 hover:bg-white/20 dark:hover:bg-gray-900/30 transition-all duration-300">
-        <div className="flex flex-col items-center space-y-8">
+      <div className="bg-white/15 dark:bg-gray-900/25 backdrop-blur-xl rounded-3xl p-10 md:p-16 lg:p-20 shadow-2xl border border-white/30 dark:border-gray-700/30 hover:bg-white/20 dark:hover:bg-gray-900/30 transition-all duration-300">
+        <div className="flex flex-col items-center space-y-10 md:space-y-12">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -83,61 +83,61 @@ const QuoteCard = ({ quote, onGenerate, isLoading, animationSpeed }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 * getAnimationDuration() }}
-            className="flex flex-col sm:flex-row items-center gap-4"
+            className="flex flex-col sm:flex-row items-center gap-6"
           >
             {/* Main Generate Button */}
             <motion.button
               onClick={onGenerate}
               disabled={isLoading}
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative px-10 py-5 text-lg bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed min-w-[200px]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 flex items-center space-x-2">
+              <span className="relative z-10 flex items-center justify-center space-x-3">
                 {isLoading ? (
                   <>
-                    <RefreshCw className="w-5 h-5 animate-spin" />
+                    <RefreshCw className="w-6 h-6 animate-spin" />
                     <span>Yuklanmoqda...</span>
                   </>
                 ) : (
                   <>
-                    <RefreshCw className="w-5 h-5" />
+                    <RefreshCw className="w-6 h-6" />
                     <span>Yangi Iqtibos</span>
                   </>
                 )}
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-700 dark:to-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-700 dark:to-blue-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.button>
 
             {/* Secondary Action Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <motion.button
                 onClick={handleCopyQuote}
-                className="p-3 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                className="p-4 rounded-xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 title="Nusxalash"
               >
-                <Copy className="w-5 h-5 text-white/80 dark:text-gray-300/80" />
+                <Copy className="w-6 h-6 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
               </motion.button>
 
               <motion.button
                 onClick={handleShareQuote}
-                className="p-3 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                className="p-4 rounded-xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 title="Ulashish"
               >
-                <Share2 className="w-5 h-5 text-white/80 dark:text-gray-300/80" />
+                <Share2 className="w-6 h-6 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
               </motion.button>
 
               <motion.button
-                className="p-3 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
+                className="p-4 rounded-xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 title="Yoqtirish"
               >
-                <Heart className="w-5 h-5 text-white/80 dark:text-gray-300/80" />
+                <Heart className="w-6 h-6 text-white/80 dark:text-gray-300/80 group-hover:text-red-400 dark:group-hover:text-red-400 transition-colors" />
               </motion.button>
             </div>
           </motion.div>
