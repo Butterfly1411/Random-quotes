@@ -168,9 +168,9 @@ const QuotesApp = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-2 md:bottom-4 left-1/2 transform -translate-x-1/2 z-10"
       >
-        <p className="text-white/60 dark:text-gray-400/60 text-sm text-center drop-shadow-lg">
+        <p className="text-white/60 dark:text-gray-400/60 text-xs md:text-sm text-center drop-shadow-lg px-4">
           Ilhomli iqtiboslar to'plami • {quotes.length} ta iqtibos
         </p>
       </motion.footer>

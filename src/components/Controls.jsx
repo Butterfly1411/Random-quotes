@@ -162,33 +162,33 @@ const Controls = ({ onNewQuote, isLoading, currentQuote, isFavorite, onToggleFav
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: getAnimationDuration() }}
-        className="relative z-10 p-6"
+        className="relative z-10 p-4 md:p-6"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Main Action Button */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4 md:mb-8">
             <motion.button
               onClick={onNewQuote}
               disabled={isLoading}
-              className="group relative px-16 py-8 text-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 text-white font-bold rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed min-w-[400px] overflow-hidden"
+              className="group relative px-8 py-4 md:px-12 lg:px-16 md:py-6 lg:py-8 text-lg md:text-xl lg:text-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 text-white font-bold rounded-2xl md:rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-md md:max-w-lg overflow-hidden"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 dark:from-pink-600 dark:via-purple-600 dark:to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-              <span className="relative z-10 flex items-center justify-center space-x-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 dark:from-pink-600 dark:via-purple-600 dark:to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl md:rounded-3xl"></div>
+              <span className="relative z-10 flex items-center justify-center space-x-2 md:space-x-4">
                 {isLoading ? (
                   <>
-                    <RefreshCw className="w-10 h-10 animate-spin" />
+                    <RefreshCw className="w-6 h-6 md:w-8 lg:w-10 md:h-8 lg:h-10 animate-spin" />
                     <span>Yuklanmoqda...</span>
                   </>
                 ) : (
                   <>
-                    <Shuffle className="w-10 h-10 group-hover:rotate-180 transition-transform duration-500" />
+                    <Shuffle className="w-6 h-6 md:w-8 lg:w-10 md:h-8 lg:h-10 group-hover:rotate-180 transition-transform duration-500" />
                     <span>Yangi Iqtibos</span>
                   </>
                 )}
               </span>
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl blur-xl"></div>
             </motion.button>
           </div>
 
@@ -197,39 +197,39 @@ const Controls = ({ onNewQuote, isLoading, currentQuote, isFavorite, onToggleFav
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: getAnimationDuration() }}
-            className="flex flex-wrap items-center justify-center gap-4"
+            className="grid grid-cols-4 gap-3 md:gap-4 max-w-md mx-auto"
           >
             {/* Copy Button */}
             <motion.button
               onClick={handleCopyQuote}
-              className="group p-6 rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group p-4 md:p-5 lg:p-6 rounded-2xl md:rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               title="Nusxalash"
             >
-              <Copy className="w-8 h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
+              <Copy className="w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
             </motion.button>
 
             {/* Share Button */}
             <motion.button
               onClick={handleShareQuote}
-              className="group p-6 rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group p-4 md:p-5 lg:p-6 rounded-2xl md:rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               title="Ulashish"
             >
-              <Share2 className="w-8 h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
+              <Share2 className="w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
             </motion.button>
 
             {/* Favorite Button */}
             <motion.button
               onClick={onToggleFavorite}
-              className="group p-6 rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group p-4 md:p-5 lg:p-6 rounded-2xl md:rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               title={isFavorite ? "Sevimlilardan olib tashlash" : "Sevimlilarga qo'shish"}
             >
-              <Heart className={`w-8 h-8 transition-all duration-300 ${
+              <Heart className={`w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 transition-all duration-300 ${
                 isFavorite 
                   ? 'text-red-500 fill-current scale-110' 
                   : 'text-white/80 dark:text-gray-300/80 group-hover:text-red-400 dark:group-hover:text-red-400'
@@ -239,12 +239,12 @@ const Controls = ({ onNewQuote, isLoading, currentQuote, isFavorite, onToggleFav
             {/* Download Button */}
             <motion.button
               onClick={handleDownloadImage}
-              className="group p-6 rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group p-4 md:p-5 lg:p-6 rounded-2xl md:rounded-3xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               title="Rasm sifatida yuklab olish"
             >
-              <Download className="w-8 h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
+              <Download className="w-6 h-6 md:w-7 lg:w-8 md:h-7 lg:h-8 text-white/80 dark:text-gray-300/80 group-hover:text-white dark:group-hover:text-white transition-colors" />
             </motion.button>
           </motion.div>
         </div>
