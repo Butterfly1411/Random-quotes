@@ -130,11 +130,6 @@ const QuoteCard = ({ quote, onGenerate, isLoading, animationSpeed }) => {
               >
                 <Share2 className="w-5 h-5 text-white/80 dark:text-gray-300/80" />
               </motion.button>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
 
               <motion.button
                 className="p-3 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300"
@@ -146,4 +141,10 @@ const QuoteCard = ({ quote, onGenerate, isLoading, animationSpeed }) => {
               </motion.button>
             </div>
           </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default QuoteCard;
