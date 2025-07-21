@@ -134,6 +134,9 @@ const Quotes = () => {
                         onGenerate={getRandom}
                         isLoading={isLoading}
                         animationSpeed={settings.animationSpeed}
+                        fontSize={settings.fontSize}
+                        textStyle={settings.textStyle}
+                        soundEffects={settings.soundEffects}
                     />
                 </AnimatePresence>
             </div>
